@@ -1,0 +1,28 @@
+footer{color: white;
+  background-color: black;
+  text-align: center
+
+}
+#footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%
+}
+
+
+.thumbnail > img{
+  height: 200px
+}
+
+form{
+  width:350px;
+  margin: 0 auto
+}
+
+li{
+  list-style-type: none;
+}
+#agregarprod{
+  display: none;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="hackaton.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .thumbnail{
+        height: 370px;
+      }
+    </style>
+  </head>
+    <body>
+
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Webstore Hackaton</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Productos <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="vertodo"class="active"><a href="#">Ver Todo<span class="sr-only">(current)</span></a></li>
+         <li><a id="linkagregar" href="#">Agregar Productos</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <div class="row">
+   <!--  -->
+
+  </div>
+</div>
+</div>
+<form id="agregarprod">
+    <div class="form-group">
+      <label for="producto">Nuevo Producto</label>
+      <select id=producto class="form-control" name="">
+        <option>Libros</option>
+        <option>Discos</option>
+      </select>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Titulo</label>
+     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+   </div>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Categoria</label>
+     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+   </div>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Precio</label>
+     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+   </div>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Puntos de Venta</label>
+     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+   </div>
+   <div class="form-group">
+     <label for="exampleInputPassword1">Imagen Url</label>
+     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="">
+   </div>
+
+
+   <button type="submit" class="btn btn-default">Submit</button>
+ </form>
+ </div>
+
+<footer id="footer">Plataforma 5®</footer>
+<script type="text/javascript">
+  var Products = {
+    Libros: [{
+      Nombre: "Tuareg",
+      Categoria: "Novelas",
+      Precio: 255,
+      "Lugar de Venta": "El Ateneo",
+      imgUrl:"http://upload.wikimedia.org/wikipedia/en/f/f1/Tuareg_novel_-_bookcover.jpg"
+    },
+      {
+      Nombre: "Cuentos completos",
+      Categoria: "Cuentos",
+      Precio: 500,
+      "Lugar de Venta": "Gral. Las heras",
+      imgUrl:"http://content.cuspide.com/getcover.ashx?ISBN=9789500738651&size=3&coverNumber=1&id_com=1113"
+      }, {
+      Nombre: "Mil y una noches",
+      Categoria: "Cuentos",
+      Precio: 1500,
+      "Lugar de Venta": "La calle",
+      Descuento: "20%",
+      imgUrl:"http://lengua.laguia2000.com/wp-content/uploads/2014/03/mil.jpg"
+
+      }
+    ],
+    Discos: [{
+      Nombre: "La mosca y la sopa",
+      Categoria: "Rock",
+      Precio: 10,
+      "Lugar de Venta": "Zelig",
+      Descuento: "20%",
+      imgUrl:"https://i.ytimg.com/vi/MQf-Cbsxk1M/mqdefault.jpg"
+    },{
+      Nombre: "Let it be",
+      Categoria: "Rock",
+      Precio: 50,
+      "Lugar de Venta": "Musimundo",
+      imgUrl:"http://d817ypd61vbww.cloudfront.net/sites/default/files/styles/media_responsive_widest/public/tile/image/original_459.jpg?itok=OGwy4GrW"
+    },{
+      Nombre: "Giros",
+      Categoria: "Rock Nacional",
+      Precio: 25,
+      "Lugar de Venta": "Musimundo",
+      imgUrl:"http://img2.wikia.nocookie.net/__cb20111212132013/lyricwiki/images/e/e2/Fito_P%C3%A1ez_-_Giros.jpg"
+    }
+  ]
+   }
+   function appendProduct(producto) {
+     var lista ='<ul>'
+     for(var key in producto){
+       if(key!=="imgUrl"){
+         lista+="<li><strong>"+key+":</strong>"+producto[key]+"</li>"
+       }
+     }
+     lista+="</ul>"
+
+      $(".row").append('<div class="col-sm-6 col-md-3 caja">\
+        <div class="thumbnail">\
+          <img class="img-thumbnail"src="'+producto.imgUrl+'" alt="...">\
+          <div class="caption">'+lista +'</div>\
+        </div>\
+      </div>')
+   }
+
+   //appendProduct(Products.Discos[0])
+   function appendCategory( categoria ) {
+     for (var key in Products[categoria]){
+       appendProduct( Products[categoria][key] );
+     }
+   }
+
+   $(".dropdown-menu").on("click","a",function() {
+     $(".row").empty()
+     appendCategory( $(this).text() )
+     $("#agregarprod").hide()
+   })
+
+   //appendCategory('Discos');
+ function appendTodos() {
+   for(var key in Products){
+     appendCategory(key);
+   }
+ }
+
+     $("#vertodo").on("click",function () {
+       $(".row").empty()
+       appendTodos()
+      $("#agregarprod").hide()
+     })
+     function generateMenu() {
+       for (var key in Products) {
+        $(".dropdown-menu").append('<li><a href="#">'+key+'</a></li>')
+        }
+     }
+    generateMenu()
+
+  $("#linkagregar").on("click",function () {
+    $(".row").empty()
+    $("#agregarprod").show()
+
+  })
+
+
+</script>
+  </body>
+</html>
